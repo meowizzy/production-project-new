@@ -1,9 +1,9 @@
 import React, { type ErrorInfo, type ReactNode, Suspense } from "react";
-import { withTranslation } from "react-i18next";
 import { PageError } from "widgets/PageError";
+import { PageLoader } from "widgets/PageLoader";
 
 interface ErrorBoundaryProps {
-    children: ReactNode
+    children?: ReactNode
 }
 
 interface ErrorBoundaryState {
@@ -29,11 +29,11 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
         const { children } = this.props;
 
         if (hasError) {
-            return <Suspense fallback={""}><PageError /></Suspense>;
+            return <Suspense fallback={<PageLoader />}><PageError /></Suspense>;
         }
 
         return children;
     }
 }
 
-export default withTranslation()(ErrorBoundary);
+export default ErrorBoundary;
