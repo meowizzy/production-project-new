@@ -1,0 +1,42 @@
+.Sidebar_btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  box-shadow: var(--shadow);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-m);
+  background-color: var(--inverted-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition);
+
+  svg {
+    width: 10px;
+    height: 10px;
+    fill: var(--white-color);
+  }
+}
+
+.Sidebar {
+  max-width: var(--sidebar-width-collapsed);
+  width: 100%;
+  background-color: var(--inverted-bg-color);
+  height: inherit;
+  padding: 30px;
+  position: relative;
+  transition: max-width var(--transition);
+
+  &.opened {
+    max-width: var(--sidebar-width);
+
+    .Sidebar_btn {
+      transform: translate(50%, -50%) rotate(180deg);
+    }
+  }
+}
+
+
+

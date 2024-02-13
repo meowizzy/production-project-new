@@ -1,0 +1,16 @@
+.langSwitcher {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-l);
+  background-color: var(--inverted-primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    stroke: var(--white-color);
+    fill: transparent;
+    max-width: 80%;
+    max-height: 80%;
+  }
+}

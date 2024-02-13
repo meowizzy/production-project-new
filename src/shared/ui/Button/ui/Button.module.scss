@@ -1,0 +1,18 @@
+.btn {
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  border: 0;
+
+}
+
+.clear {
+  background-color: transparent;
+}
+
+.primary {
+  background-color: var(--inverted-primary-color);
+  border-radius: var(--radius-s);
+  color: var(--primary-color);
+  padding: 10px 15px;
+}

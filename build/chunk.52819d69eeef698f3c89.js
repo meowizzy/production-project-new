@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduction_project=self.webpackChunkproduction_project||[]).push([[13],{13:(c,e,r)=>{r.r(e),r.d(e,{default:()=>n});var t=r(893);const n=function(){return(0,t.jsx)("div",{children:"21313131"})}}}]);
