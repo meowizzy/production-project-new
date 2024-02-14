@@ -12,7 +12,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
     const { cls } = props;
 
     return (
-        <div className={cn(styles.Sidebar, cls, {
+        <div data-testid="sidebar" className={cn(styles.Sidebar, cls, {
             [styles.opened]: collapsed
         })}>
             <Button
