@@ -1,0 +1,15 @@
+.LoginBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--inverted-primary-color);
+  border-radius: var(--radius-l);
+  svg {
+    max-width: 90%;
+    max-height: 90%;
+    fill: var(--white-color);
+  }
+}

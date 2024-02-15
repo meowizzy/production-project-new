@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import React, { type FC } from "react";
 import { Link } from "react-router-dom";
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
 import { LanguageSwitcher } from "shared/ui/LanguageSwitcher";
@@ -6,6 +6,7 @@ import cn from "classnames";
 
 import styles from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
+import { Login } from "shared/ui/Login";
 
 interface NavbarProps {
     className?: string
@@ -24,6 +25,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             </nav>
             <ThemeSwitcher className={styles.theme}/>
             <LanguageSwitcher className={styles.lang}/>
+            <Login classname={styles.login}/>
         </header>
     );
 };

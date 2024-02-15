@@ -6,7 +6,8 @@ module.exports =  {
     },
     "extends": [
         "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:storybook/recommended",
     ],
     ignorePatterns: [
         'build', ".eslintrc.js"
@@ -31,7 +32,8 @@ module.exports =  {
         "tsconfigRootDir": __dirname
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ],
     "rules": {
         "@typescript-eslint/quotes": ["warn", "double", { "avoidEscape": true }],
@@ -54,7 +56,10 @@ module.exports =  {
         "@typescript-eslint/promise-function-async": "warn",
         "@typescript-eslint/no-misused-promises": "warn",
         "@typescript-eslint/no-non-null-assertion": "off",
-        "import/extensions": "off"
+        "import/extensions": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error"
     }
 }
 

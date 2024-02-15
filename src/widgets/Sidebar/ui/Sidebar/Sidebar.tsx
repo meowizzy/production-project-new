@@ -16,6 +16,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
             [styles.opened]: collapsed
         })}>
             <Button
+                data-testid="sidebar-toggle"
                 cls={ styles.Sidebar_btn }
                 theme={ ThemeButton.CLEAR }
                 onClick={ () => { setCollapsed(!collapsed); } }

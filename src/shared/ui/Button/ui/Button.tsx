@@ -1,3 +1,4 @@
+import React from "react";
 import { type ButtonHTMLAttributes, type DataHTMLAttributes, type FC } from "react";
 import styles from "./Button.module.scss";
 import cn from "classnames";

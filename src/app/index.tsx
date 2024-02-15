@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import { type FC, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useTheme } from "app/providers/ThemeProvider/lib/useTheme";
 import cn from "classnames";
@@ -6,6 +6,7 @@ import "app/styles/index.scss";
 import { Navbar } from "widgets/Navbar/ui/Navbar";
 import { Sidebar } from "widgets/Sidebar";
 import ErrorBoundary from "app/providers/ErrorBoundary";
+import { Button } from "shared/ui/Button";
 
 export const App: FC = () => {
     const { theme } = useTheme();
@@ -14,7 +15,6 @@ export const App: FC = () => {
         <ErrorBoundary>
             <div className={cn("App", theme)}>
                 <Navbar/>
-
                 <div className="app-content-outer">
                     <Sidebar />
                     <main role="main" className="app-content">
