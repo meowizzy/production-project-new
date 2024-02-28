@@ -59,7 +59,9 @@ module.exports =  {
         "import/extensions": "off",
         "@typescript-eslint/ban-ts-comment": "off",
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "error"
+        "react-hooks/exhaustive-deps": "error",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-confusing-void-expression": "off"
     }
 }
 
