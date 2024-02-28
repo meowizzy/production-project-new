@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { type FC } from "react";
-import { Counter } from "entities/Counter";
 
 const Home: FC = () => {
     const { t } = useTranslation("home");
