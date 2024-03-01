@@ -4,7 +4,6 @@ import { Portal } from "shared/ui/Portal";
 import React, { type FC, type MouseEvent, type ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { Button, ThemeButton } from "shared/ui/Button";
 import CloseIcon from "shared/assets/closeIcon.svg";
-import { useTheme } from "app/providers/ThemeProvider";
 
 interface ModalProps {
     classname?: string

@@ -23,13 +23,12 @@
 .ModalContent {
   padding: 20px;
   border-radius: 12px;
-  background-color: var(--inverted-primary-color);
+  background-color: var(--primary-color);
   max-width: 600px;
   width: 100%;
   transform: scale(0.5);
   transition: var(--transition) transform;
   position: relative;
-  min-height: 300px;
 }
 
 .Modal {
