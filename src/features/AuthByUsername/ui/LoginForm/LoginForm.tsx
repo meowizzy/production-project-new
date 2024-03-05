@@ -1,13 +1,14 @@
 import { type FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
-import styles from "./LoginForm.module.scss";
-import { Button } from "shared/ui/Button";
+import { Button, ThemeButton } from "shared/ui/Button";
 import { Input } from "shared/ui/Input";
+import { Text, ThemeText } from "shared/ui/Text";
 import { useDispatch, useSelector } from "react-redux";
 import { loginActions } from "features/AuthByUsername";
 import { getLoginState } from "features/AuthByUsername/model/selectors/getLoginState/getLoginState";
 import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername/loginByUsername";
+import styles from "./LoginForm.module.scss";
 
 interface LoginFormProps {
     className?: string
@@ -19,7 +20,7 @@ export const LoginForm: FC = memo((props: LoginFormProps) => {
     } = props;
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const { email, password } = useSelector(getLoginState);
+    const { email, password, isLoading, error } = useSelector(getLoginState);
 
     const onChangeUsername = useCallback((value: string): void => {
         dispatch(loginActions.setUsername(value));
@@ -36,6 +37,13 @@ export const LoginForm: FC = memo((props: LoginFormProps) => {
 
     return (
         <div className={cn(styles.LoginForm, className)}>
+            <Text title={t("Авторизация")}/>
+            { error &&
+                <Text
+                    theme={ThemeText.ERROR}
+                    description={t(error)}
+                />
+            }
             <Input
                 className={styles.input}
                 placeholder={t("Логин")}
@@ -49,7 +57,10 @@ export const LoginForm: FC = memo((props: LoginFormProps) => {
                 onChange={onChangePassword}
                 value={password}
             />
-            <Button onClick={onLoginClick}>
+            <Button
+                onClick={onLoginClick}
+                theme={isLoading ? ThemeButton.DISABLED : ThemeButton.PRIMARY}
+            >
                 {t("Войти")}
             </Button>
         </div>
