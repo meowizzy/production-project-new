@@ -1,0 +1,21 @@
+.InputWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 250px;
+  width: 100%;
+}
+
+.InputLabel {
+  color: var(--inverted-secondary-color);
+  font: var(--font-m);
+}
+
+.Input {
+  min-height: 40px;
+  border-radius: var(--radius-s);
+  border: 0;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+}

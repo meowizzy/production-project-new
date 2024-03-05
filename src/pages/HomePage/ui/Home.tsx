@@ -5,7 +5,9 @@ const Home: FC = () => {
     const { t } = useTranslation("home");
 
     return (
-        <h1>{t("Главная страница")}</h1>
+        <>
+            <h1>{t("Главная страница")}</h1>
+        </>
     );
 };
 

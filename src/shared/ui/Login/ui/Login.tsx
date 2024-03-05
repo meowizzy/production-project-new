@@ -1,9 +1,9 @@
 import React, { type FC, useCallback, useState } from "react";
 import cn from "classnames";
 import { Button, ThemeButton } from "shared/ui/Button";
-import { Modal } from "shared/ui/Modal";
 import cls from "./Login.module.scss";
 import LoginIcon from "shared/assets/LoginIcon.svg";
+import { LoginModal } from "features/AuthByUsername";
 
 interface LoginProps {
     classname?: string
@@ -26,7 +26,7 @@ export const Login: FC<LoginProps> = (props) => {
             >
                 <LoginIcon />
             </Button>
-            <Modal
+            <LoginModal
                 isOpen={modalOpened}
                 onClose={closeHandler}
             />

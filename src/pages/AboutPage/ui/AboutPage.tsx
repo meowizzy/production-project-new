@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { type FC, useEffect } from "react";
+import { type FC } from "react";
 
 const AboutPage: FC = () => {
     const { t } = useTranslation("about");
