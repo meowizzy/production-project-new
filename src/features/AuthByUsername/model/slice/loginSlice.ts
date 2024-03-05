@@ -5,7 +5,8 @@ import { loginByUsername } from "../services/loginByUsername/loginByUsername";
 const initialState: LoginSchema = {
     email: "",
     password: "",
-    isLoading: false
+    isLoading: false,
+    error: undefined
 };
 export const loginSlice = createSlice({
     name: "login",
@@ -20,15 +21,15 @@ export const loginSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+            .addCase(loginByUsername.rejected, (state, action) => {
+                state.error = action.payload;
+                state.isLoading = false;
+            })
             .addCase(loginByUsername.pending, (state, action) => {
                 state.error = undefined;
                 state.isLoading = true;
             })
             .addCase(loginByUsername.fulfilled, (state, action) => {
-                state.isLoading = false;
-            })
-            .addCase(loginByUsername.rejected, (state, action) => {
-                state.error = action.payload;
                 state.isLoading = false;
             });
     }

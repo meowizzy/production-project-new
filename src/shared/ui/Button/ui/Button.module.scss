@@ -10,9 +10,14 @@
   background-color: transparent;
 }
 
-.primary {
+.primary, .disabled {
   background-color: var(--inverted-primary-color);
   border-radius: var(--radius-s);
   color: var(--primary-color);
   padding: 10px 15px;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: .5;
 }

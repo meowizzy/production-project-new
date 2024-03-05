@@ -64,7 +64,8 @@ module.exports =  {
         "@typescript-eslint/no-confusing-void-expression": "off",
         "@typescript-eslint/no-var-requires": "off",
         "react/display-name": "off",
-        "@typescript-eslint/member-delimiter-style": "off"
+        "@typescript-eslint/member-delimiter-style": "off",
+        "@typescript-eslint/no-unsafe-argument": "off"
     }
 }
 

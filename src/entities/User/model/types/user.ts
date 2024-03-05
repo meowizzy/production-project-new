@@ -1,8 +1,10 @@
 export interface User {
-    id: string
-    username: string
+    id: number
+    email: string
 }
 
 export interface UserSchema {
-    authData?: User
+    authData?: User,
+    isLoading?: boolean,
+    error?: string
 }

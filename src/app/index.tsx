@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import { type FC, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import cn from "classnames";
 import "app/styles/index.scss";

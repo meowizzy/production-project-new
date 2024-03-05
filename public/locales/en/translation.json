@@ -6,5 +6,10 @@
   "Обновить страницу": "Go to main page",
   "Логин": "Login",
   "Пароль": "Password",
-  "Войти": "Sign in"
+  "Войти": "Sign in",
+  "Email format is invalid": "Email format is invalid",
+  "Incorrect password": "Incorrect password",
+  "Cannot find user": "Cannot find user",
+  "Email and password are required": "Email and password are required",
+  "Авторизация": "Sign in"
 }

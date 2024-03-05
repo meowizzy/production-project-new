@@ -23,9 +23,6 @@
       "postId": "1"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
     {
       "id": 1,
@@ -36,6 +33,11 @@
       "email": "test@test.com",
       "password": "$2a$10$.BDqwDcd.iac5sJB3YZSRuHvGoO5hL9AWbs/bc9mmju0N8xjE.f6O",
       "id": 2
+    },
+    {
+      "email": "admintest@mail.com",
+      "password": "$2a$10$25KLzsx/ZsaotTJTF5ZjB.iO.JB99h5ihYnrSa6JtQAD8Sw.MkTd6",
+      "id": 3
     }
   ]
 }
