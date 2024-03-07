@@ -84,6 +84,7 @@
     "@reduxjs/toolkit": "^2.2.1",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
+    "@types/react-redux": "^7.1.33",
     "axios": "^1.6.7",
     "classnames": "^2.5.1",
     "D": "^1.0.0",

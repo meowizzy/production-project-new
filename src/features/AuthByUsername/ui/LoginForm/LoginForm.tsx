@@ -19,7 +19,7 @@ export const LoginForm: FC = memo((props: LoginFormProps) => {
         className
     } = props;
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<any>();
     const { email, password, isLoading, error } = useSelector(getLoginState);
 
     const onChangeUsername = useCallback((value: string): void => {
@@ -31,7 +31,6 @@ export const LoginForm: FC = memo((props: LoginFormProps) => {
     }, [dispatch]);
 
     const onLoginClick = useCallback(() => {
-        // @ts-expect-error
         dispatch(loginByUsername({ email, password }));
     }, [dispatch, email, password]);
 

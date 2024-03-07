@@ -10,12 +10,11 @@ import { getUserData } from "entities/User/model/services/getUserData/getUserDat
 import { LOCAL_STORAGE } from "shared/const/localstorage";
 
 export const App: FC = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<any>();
 
     useEffect(() => {
         const AUTH_TOKEN = localStorage.getItem(LOCAL_STORAGE.AUTH_TOKEN);
         if (AUTH_TOKEN) {
-            // @ts-expect-error
             dispatch(getUserData());
         }
     }, [dispatch]);

@@ -1,4 +1,5 @@
 export enum LOCAL_STORAGE {
-    AUTH_TOKEN = "AUTH_TOKEN",
-    USER_ID = "USER_ID"
+    AUTH_TOKEN = "auth_token",
+    USER_ID = "user_id",
+    THEME_KEY = "theme"
 }

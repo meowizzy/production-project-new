@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { type User, type UserSchema } from "../types/user";
 import { getUserData } from "../services/getUserData/getUserData";
+import { LOCAL_STORAGE } from "shared/const/localstorage";
 
 const initialState: UserSchema = {
     authData: undefined,
@@ -16,6 +17,8 @@ export const userSlice = createSlice({
         },
         removeAuthData: (state) => {
             state.authData = undefined;
+            localStorage.removeItem(LOCAL_STORAGE.USER_ID);
+            localStorage.removeItem(LOCAL_STORAGE.AUTH_TOKEN);
         }
     },
     extraReducers: (builder) => {
@@ -24,7 +27,6 @@ export const userSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(getUserData.rejected, (state, action) => {
-                // @ts-expect-error
                 state.error = action.payload;
                 state.isLoading = false;
             })

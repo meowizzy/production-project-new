@@ -3,9 +3,12 @@ import axios from "axios";
 import { LOCAL_STORAGE } from "shared/const/localstorage";
 import { type User, userActions } from "entities/User";
 
-export const getUserData = createAsyncThunk(
+interface ThunkConfig {
+    rejectValue: string;
+}
+export const getUserData = createAsyncThunk<User, void, ThunkConfig>(
     "user/getUserData",
-    async (userData, { rejectWithValue, dispatch }) => {
+    async (_, { rejectWithValue, dispatch }) => {
         const USER_ID = localStorage.getItem(LOCAL_STORAGE.USER_ID);
         const AUTH_TOKEN = localStorage.getItem(LOCAL_STORAGE.AUTH_TOKEN);
 
@@ -16,12 +19,10 @@ export const getUserData = createAsyncThunk(
                 }
             });
 
-            const filteredEntries = Object.entries(response.data).filter((item) => item[0] !== "password");
-            // @ts-expect-error
-            const newData: User = Object.fromEntries(filteredEntries);
-            dispatch(userActions.setAuthData(newData));
+            const { email, id } = response.data;
+            dispatch(userActions.setAuthData({ email, id }));
 
-            return response.data;
+            return { email, id };
         } catch (e) {
             const msg: string = e.response.data;
 
