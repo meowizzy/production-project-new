@@ -15,4 +15,4 @@ export function createReduxStore (initialState?: StateSchema): EnhancedStore {
         devTools: __IS_DEV__,
         preloadedState: initialState
     });
-};
+}

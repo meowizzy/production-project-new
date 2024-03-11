@@ -1,9 +1,10 @@
-import cn from "classnames";
-import cls from "./Modal.module.scss";
-import { Portal } from "shared/ui/Portal";
 import React, { type FC, type MouseEvent, type ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import cn from "classnames";
+import { Portal } from "shared/ui/Portal";
 import { Button, ThemeButton } from "shared/ui/Button";
+import { MODAL_ANIMATION_DELAY } from "shared/const/const";
 import CloseIcon from "shared/assets/closeIcon.svg";
+import cls from "./Modal.module.scss";
 
 interface ModalProps {
     classname?: string
@@ -11,8 +12,6 @@ interface ModalProps {
     isOpen?: boolean
     onClose?: () => void
 }
-
-const ANIMATION_DELAY = 300;
 export const Modal: FC<ModalProps> = (props) => {
     const {
         classname,
@@ -33,7 +32,7 @@ export const Modal: FC<ModalProps> = (props) => {
             timeRef.current = setTimeout(() => {
                 onClose();
                 setIsClosing(false);
-            }, ANIMATION_DELAY);
+            }, MODAL_ANIMATION_DELAY);
         }
     }, [setIsClosing, onClose]);
 

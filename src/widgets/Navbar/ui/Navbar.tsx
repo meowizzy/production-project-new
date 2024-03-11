@@ -1,15 +1,11 @@
-import React, { type FC, useCallback } from "react";
+import React, { type FC } from "react";
+import cn from "classnames";
 import { Link } from "react-router-dom";
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
 import { LanguageSwitcher } from "shared/ui/LanguageSwitcher";
-import cn from "classnames";
-
-import styles from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
 import { Login } from "shared/ui/Login";
-import { useDispatch, useSelector } from "react-redux";
-import { getUserState, userActions } from "entities/User";
-import { LOCAL_STORAGE } from "shared/const/localstorage";
+import styles from "./Navbar.module.scss";
 
 interface NavbarProps {
     className?: string

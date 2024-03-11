@@ -2,13 +2,13 @@ import React, { type FC, useCallback, useState } from "react";
 import cn from "classnames";
 import { Button, ThemeButton } from "shared/ui/Button";
 import { Text } from "shared/ui/Text";
-import cls from "./Login.module.scss";
-import LoginIcon from "shared/assets/LoginIcon.svg";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserState, userActions } from "entities/User";
 import { useTranslation } from "react-i18next";
 import { Loader } from "shared/ui/Loader";
+import LoginIcon from "shared/assets/LoginIcon.svg";
+import cls from "./Login.module.scss";
 
 interface LoginProps {
     classname?: string
@@ -27,8 +27,7 @@ export const Login: FC<LoginProps> = (props) => {
 
     const onLogout = useCallback((): void => {
         dispatch(userActions.removeAuthData());
-        setModalOpened(!modalOpened);
-    }, [dispatch, modalOpened]);
+    }, [dispatch]);
 
     if (isLoading) {
         return <Loader />;

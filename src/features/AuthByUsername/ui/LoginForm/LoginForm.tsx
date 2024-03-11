@@ -10,11 +10,11 @@ import { getLoginState } from "features/AuthByUsername/model/selectors/getLoginS
 import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername/loginByUsername";
 import styles from "./LoginForm.module.scss";
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string
 }
 
-export const LoginForm: FC = memo((props: LoginFormProps) => {
+const LoginForm: FC = memo((props: LoginFormProps) => {
     const {
         className
     } = props;
@@ -65,3 +65,5 @@ export const LoginForm: FC = memo((props: LoginFormProps) => {
         </div>
     );
 });
+
+export default LoginForm;

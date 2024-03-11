@@ -11,5 +11,6 @@
   "Incorrect password": "Incorrect password",
   "Cannot find user": "Cannot find user",
   "Email and password are required": "Email and password are required",
-  "Авторизация": "Sign in"
+  "Авторизация": "Sign in",
+  "Выйти": "Logout"
 }
