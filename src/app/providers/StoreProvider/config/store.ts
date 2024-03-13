@@ -2,17 +2,24 @@ import { configureStore, type EnhancedStore, type ReducersMapObject } from "@red
 import { type StateSchema } from "../config/StateSchema";
 import { counterReducer } from "entities/Counter/model/slice/counterSlice";
 import { userReducer } from "entities/User";
-import { loginReducer } from "features/AuthByUsername";
+import { createReducerManager } from "./reducerManager";
 
 export function createReduxStore (initialState?: StateSchema): EnhancedStore {
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
-        user: userReducer,
-        loginForm: loginReducer
+        user: userReducer
     };
-    return configureStore<StateSchema>({
+
+    const reduceManager = createReducerManager(rootReducers);
+
+    const store = configureStore<StateSchema>({
         reducer: rootReducers,
         devTools: __IS_DEV__,
         preloadedState: initialState
     });
+
+    // @ts-expect-error
+    store.reducerManager = reduceManager;
+
+    return store;
 }
