@@ -17,8 +17,7 @@ export const userSlice = createSlice({
         },
         removeAuthData: (state) => {
             state.authData = undefined;
-            localStorage.removeItem(LOCAL_STORAGE.USER_ID);
-            localStorage.removeItem(LOCAL_STORAGE.AUTH_TOKEN);
+            localStorage.removeItem(LOCAL_STORAGE.AUTH);
         }
     },
     extraReducers: (builder) => {

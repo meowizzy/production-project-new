@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { LOCAL_STORAGE } from "shared/const/localstorage";
 import { type User, userActions } from "entities/User";
+import { type AUTH_DATA } from "app/providers/StoreProvider/config/StateSchema";
 
 interface ThunkConfig {
     rejectValue: string;
@@ -9,13 +10,12 @@ interface ThunkConfig {
 export const getUserData = createAsyncThunk<User, void, ThunkConfig>(
     "user/getUserData",
     async (_, { rejectWithValue, dispatch }) => {
-        const USER_ID = localStorage.getItem(LOCAL_STORAGE.USER_ID);
-        const AUTH_TOKEN = localStorage.getItem(LOCAL_STORAGE.AUTH_TOKEN);
+        const AUTH: AUTH_DATA = JSON.parse(localStorage.getItem(LOCAL_STORAGE.AUTH)!);
 
         try {
-            const response = await axios.get(`http://localhost:3001/users/${USER_ID}`, {
+            const response = await axios.get(`http://localhost:3001/users/${AUTH.id}`, {
                 headers: {
-                    Authorization: `Bearer ${AUTH_TOKEN}`
+                    Authorization: `Bearer ${AUTH.token}`
                 }
             });
 

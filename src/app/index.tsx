@@ -13,8 +13,8 @@ export const App: FC = () => {
     const dispatch = useDispatch<any>();
 
     useEffect(() => {
-        const AUTH_TOKEN = localStorage.getItem(LOCAL_STORAGE.AUTH_TOKEN);
-        if (AUTH_TOKEN) {
+        const AUTH = localStorage.getItem(LOCAL_STORAGE.AUTH);
+        if (AUTH) {
             dispatch(getUserData());
         }
     }, [dispatch]);

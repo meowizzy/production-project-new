@@ -11,9 +11,12 @@ export interface StateSchema {
     loginForm?: LoginSchema;
 }
 
-export type StateSchemaKey = keyof StateSchema;
+export interface AUTH_DATA {
+    id: string;
+    token: string;
+}
 
-export type ReducersObj = ReducersMapObject<StateSchema>;
+export type StateSchemaKey = keyof StateSchema;
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
     reduce: (state: StateSchema, action: UnknownAction) => StateSchema
