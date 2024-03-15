@@ -3,6 +3,8 @@ import cn from "classnames";
 import styles from "./Sidebar.module.scss";
 import { Button, ThemeButton } from "shared/ui/Button";
 import Arrow from "shared/assets/rightArrow.svg";
+import { Menu } from "shared/ui/Menu";
+import { SidebarItemList } from "../../model/items";
 
 interface SidebarProps {
     cls?: string
@@ -15,13 +17,19 @@ export const Sidebar: FC<SidebarProps> = (props) => {
         <div data-testid="sidebar" className={cn(styles.Sidebar, cls, {
             [styles.opened]: collapsed
         })}>
+            <Menu
+                className={styles.SidebarMenu}
+                list={SidebarItemList}
+            />
             <Button
                 data-testid="sidebar-toggle"
-                cls={ styles.Sidebar_btn }
-                theme={ ThemeButton.CLEAR }
-                onClick={ () => { setCollapsed(!collapsed); } }
+                cls={styles.Sidebar_btn}
+                theme={ThemeButton.CLEAR}
+                onClick={() => {
+                    setCollapsed(!collapsed);
+                }}
             >
-                <Arrow />
+                <Arrow/>
             </Button>
         </div>
     );

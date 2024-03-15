@@ -3,7 +3,7 @@ import { type StateSchema } from "app/providers/StoreProvider";
 
 describe("getCounter", () => {
     test("should return counter field", () => {
-        const state: Partial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             counter: {
                 value: 10
             }

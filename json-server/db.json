@@ -39,5 +39,15 @@
       "password": "$2a$10$25KLzsx/ZsaotTJTF5ZjB.iO.JB99h5ihYnrSa6JtQAD8Sw.MkTd6",
       "id": 3
     }
-  ]
+  ],
+  "profile": {
+    "id": 3,
+    "firstName": "Maksad",
+    "lastName": "Khalipaev",
+    "age": 23,
+    "country": "Uzbekistan",
+    "city": "Tashkent",
+    "username": "meowizzy",
+    "avatar": "https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
+  }
 }

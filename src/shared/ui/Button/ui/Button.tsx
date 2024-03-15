@@ -13,12 +13,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     dataTest?: DataHTMLAttributes<any>
 }
 export const Button: FC<ButtonProps> = (props) => {
-    const { cls, children, theme = ThemeButton.PRIMARY } = props;
-    const otherProps = {
-        ...Object.fromEntries(
-            Object.entries(props)
-                .filter((key, value) => !key.includes("cls") && !key.includes("children") && !key.includes("theme")))
-    };
+    const {
+        cls,
+        children,
+        theme = ThemeButton.PRIMARY,
+        ...otherProps
+    } = props;
 
     return (
         <button className={cn(styles.btn, cls, styles[theme])} { ...otherProps }>

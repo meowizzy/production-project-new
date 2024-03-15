@@ -19,10 +19,10 @@ export const getUserData = createAsyncThunk<User, void, ThunkConfig>(
                 }
             });
 
-            const { email, id } = response.data;
-            dispatch(userActions.setAuthData({ email, id }));
+            const { password, ...userData } = response.data;
+            dispatch(userActions.setAuthData(userData));
 
-            return { email, id };
+            return userData;
         } catch (e) {
             const msg: string = e.response.data;
 

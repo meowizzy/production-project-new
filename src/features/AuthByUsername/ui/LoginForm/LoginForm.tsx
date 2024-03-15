@@ -1,22 +1,26 @@
 import { type FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { loginActions } from "../../";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
-import { getLoginEmail } from "../../model/selectors/getLoginEmail/getLoginEmail";
-import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
-import { getLoginLoading } from "../../model/selectors/getLoginLoading/getLoginLoading";
-import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
+import {
+    getLoginEmail,
+    getLoginError,
+    getLoginLoading,
+    getLoginPassword
+} from "../../model/selectors/index";
+import { loginReducer } from "../../model/slice/loginSlice";
+import DynamicModuleLoader, { type ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Button, ThemeButton } from "shared/ui/Button";
 import { Input } from "shared/ui/Input";
 import { Text, ThemeText } from "shared/ui/Text";
 import styles from "./LoginForm.module.scss";
 import cn from "classnames";
-import DynamicModuleLoader, { type ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
 
 export interface LoginFormProps {
-    className?: string
+    className?: string;
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -25,10 +29,11 @@ const initialReducers: ReducersList = {
 
 const LoginForm: FC = memo((props: LoginFormProps) => {
     const {
-        className
+        className,
+        onSuccess
     } = props;
     const { t } = useTranslation();
-    const dispatch = useDispatch<any>();
+    const dispatch = useAppDispatch();
     const email = useSelector(getLoginEmail);
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginLoading);
@@ -42,9 +47,13 @@ const LoginForm: FC = memo((props: LoginFormProps) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ email, password }));
-    }, [dispatch, email, password]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ email, password }));
+
+        if (result.meta.requestStatus === "fulfilled") {
+            onSuccess();
+        }
+    }, [dispatch, email, password, onSuccess]);
 
     return (
         <DynamicModuleLoader
