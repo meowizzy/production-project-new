@@ -13,9 +13,10 @@ interface ThunkConfig {
 
 export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig>(
     "login/loginByUsername",
-    async (authData, { rejectWithValue, dispatch }) => {
+    async (authData, { rejectWithValue, dispatch, extra }) => {
         try {
-            const response = await axios.post("http://localhost:3001/login", authData);
+            // @ts-expect-error
+            const response = await extra.api.post("/login", authData);
 
             dispatch(userActions.setAuthData(response.data.user));
 
@@ -25,6 +26,8 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
             };
 
             localStorage.setItem(LOCAL_STORAGE.AUTH, JSON.stringify(userData));
+            // @ts-expect-error
+            extra.navigate("/about");
 
             return response.data.user;
         } catch (err) {

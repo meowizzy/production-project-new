@@ -2,6 +2,7 @@ import { type FC } from "react";
 import { useTranslation } from "react-i18next";
 import DynamicModuleLoader, { type ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { profileReducer } from "entities/Profile";
+import { useNavigate } from "react-router-dom";
 
 const reducers: ReducersList = {
     profile: profileReducer

@@ -9,15 +9,12 @@ interface ThunkConfig {
 }
 export const getUserData = createAsyncThunk<User, void, ThunkConfig>(
     "user/getUserData",
-    async (_, { rejectWithValue, dispatch }) => {
+    async (_, { rejectWithValue, dispatch, extra }) => {
         const AUTH: AUTH_DATA = JSON.parse(localStorage.getItem(LOCAL_STORAGE.AUTH)!);
 
         try {
-            const response = await axios.get(`http://localhost:3001/users/${AUTH.id}`, {
-                headers: {
-                    Authorization: `Bearer ${AUTH.token}`
-                }
-            });
+            // @ts-expect-error
+            const response = await extra.api.get(`/users/${AUTH.id}`);
 
             const { password, ...userData } = response.data;
             dispatch(userActions.setAuthData(userData));

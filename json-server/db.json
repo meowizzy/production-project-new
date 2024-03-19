@@ -40,14 +40,16 @@
       "id": 3
     }
   ],
-  "profile": {
-    "id": 3,
-    "firstName": "Maksad",
-    "lastName": "Khalipaev",
-    "age": 23,
-    "country": "Uzbekistan",
-    "city": "Tashkent",
-    "username": "meowizzy",
-    "avatar": "https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
-  }
+  "profile": [
+    {
+      "id": 3,
+      "firstName": "Maksad",
+      "lastName": "Khalipaev",
+      "age": 23,
+      "country": "Uzbekistan",
+      "city": "Tashkent",
+      "username": "meowizzy",
+      "avatar": "https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
+    }
+  ]
 }
