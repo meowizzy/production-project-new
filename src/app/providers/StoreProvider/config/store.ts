@@ -32,7 +32,8 @@ export function createReduxStore (
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
                 extraArgument: {
-                    api: $api
+                    api: $api,
+                    navigate
                 }
             }
         })

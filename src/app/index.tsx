@@ -1,9 +1,8 @@
 import { type FC, useEffect } from "react";
+import { AppRouter } from "app/providers/router";
 import { useDispatch } from "react-redux";
 import { getUserData } from "entities/User/model/services/getUserData/getUserData";
 import { LOCAL_STORAGE } from "shared/const/localstorage";
-import ErrorBoundary from "./providers/ErrorBoundary";
-import { AppLayout } from "./AppLayout/AppLayout";
 import "app/styles/index.scss";
 
 export const App: FC = () => {
@@ -17,8 +16,6 @@ export const App: FC = () => {
     }, [dispatch]);
 
     return (
-        <ErrorBoundary>
-            <AppLayout />
-        </ErrorBoundary>
+        <AppRouter />
     );
 };

@@ -3,7 +3,6 @@ import { type FC } from "react";
 
 const AboutPage: FC = () => {
     const { t } = useTranslation("about");
-
     return (
         <h1>{t("О нас")}</h1>
     );
