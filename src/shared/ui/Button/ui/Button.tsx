@@ -1,5 +1,5 @@
-import React from "react";
-import { type ButtonHTMLAttributes, type DataHTMLAttributes, type FC } from "react";
+import { memo, type NamedExoticComponent, type ButtonHTMLAttributes, type DataHTMLAttributes } from "react";
+
 import styles from "./Button.module.scss";
 import cn from "classnames";
 export enum ThemeButton {
@@ -12,7 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: ThemeButton
     dataTest?: DataHTMLAttributes<any>
 }
-export const Button: FC<ButtonProps> = (props) => {
+export const Button: NamedExoticComponent<ButtonProps> = memo((props) => {
     const {
         cls,
         children,
@@ -25,4 +25,4 @@ export const Button: FC<ButtonProps> = (props) => {
             { children }
         </button>
     );
-};
+});

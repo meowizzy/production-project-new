@@ -1,5 +1,4 @@
-import React, { type FC, useCallback, useState } from "react";
-import cn from "classnames";
+import { type FC, memo, useCallback, useState } from "react";
 import { Button, ThemeButton } from "shared/ui/Button";
 import { Text } from "shared/ui/Text";
 import { LoginModal } from "features/AuthByUsername";
@@ -8,12 +7,13 @@ import { getUserState, userActions } from "entities/User";
 import { useTranslation } from "react-i18next";
 import { Loader } from "shared/ui/Loader";
 import LoginIcon from "shared/assets/LoginIcon.svg";
+import cn from "classnames";
 import cls from "./Login.module.scss";
 
 interface LoginProps {
     classname?: string
 }
-export const Login: FC<LoginProps> = (props) => {
+export const Login: FC<LoginProps> = memo((props) => {
     const {
         classname
     } = props;
@@ -64,4 +64,4 @@ export const Login: FC<LoginProps> = (props) => {
             />
         </div>
     );
-};
+});

@@ -67,7 +67,9 @@ module.exports =  {
         "@typescript-eslint/member-delimiter-style": "off",
         "@typescript-eslint/no-unsafe-argument": "off",
         "@typescript-eslint/no-invalid-void-type": "off",
-        "@typescript-eslint/no-dynamic-delete": "off"
+        "@typescript-eslint/no-dynamic-delete": "off",
+        "@typescript-eslint/dot-notation": "warn",
+        "react/prop-types": "off"
     }
 }
 

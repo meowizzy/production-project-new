@@ -1,4 +1,4 @@
-import { type FC, type ReactNode } from "react";
+import { memo, type NamedExoticComponent, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import cls from "./AppLink.module.scss";
 import cn from "classnames";
@@ -13,7 +13,7 @@ interface AppLinkProps {
     theme?: AppLinkTheme;
     children: ReactNode
 }
-export const AppLink: FC<AppLinkProps> = (props) => {
+export const AppLink: NamedExoticComponent<AppLinkProps> = memo((props) => {
     const {
         className,
         to,
@@ -28,4 +28,4 @@ export const AppLink: FC<AppLinkProps> = (props) => {
             {children}
         </Link>
     );
-};
+});

@@ -21,6 +21,8 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.NOT_FOUND]: "*"
 };
 
+console.log("RouteConfig: ", RoutePath);
+
 export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.ROOT]: {
         path: RoutePath.root,

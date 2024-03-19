@@ -1,13 +1,10 @@
 import { type FC, useEffect } from "react";
-import { Outlet } from "react-router-dom";
-import cn from "classnames";
-import "app/styles/index.scss";
-import { Navbar } from "widgets/Navbar/ui/Navbar";
-import { Sidebar } from "widgets/Sidebar";
-import ErrorBoundary from "app/providers/ErrorBoundary";
 import { useDispatch } from "react-redux";
 import { getUserData } from "entities/User/model/services/getUserData/getUserData";
 import { LOCAL_STORAGE } from "shared/const/localstorage";
+import ErrorBoundary from "./providers/ErrorBoundary";
+import { AppLayout } from "./AppLayout/AppLayout";
+import "app/styles/index.scss";
 
 export const App: FC = () => {
     const dispatch = useDispatch<any>();
@@ -21,15 +18,7 @@ export const App: FC = () => {
 
     return (
         <ErrorBoundary>
-            <div className={cn("App")}>
-                <Navbar/>
-                <div className="app-content-outer">
-                    <Sidebar />
-                    <main role="main" className="app-content">
-                        <Outlet/>
-                    </main>
-                </div>
-            </div>
+            <AppLayout />
         </ErrorBoundary>
     );
 };
