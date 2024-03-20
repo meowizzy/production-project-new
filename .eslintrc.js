@@ -12,6 +12,10 @@ module.exports =  {
     ignorePatterns: [
         'build', ".eslintrc.js"
     ],
+    globals: {
+        __IS_DEV__: true,
+        __API__: true
+    },
     "overrides": [
         {
             "env": {

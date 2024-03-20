@@ -5,7 +5,8 @@ import cn from "classnames";
 export enum ThemeButton {
     CLEAR = "clear",
     PRIMARY = "primary",
-    DISABLED = "disabled"
+    DISABLED = "disabled",
+    LOADING = "loading"
 }
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     cls?: string

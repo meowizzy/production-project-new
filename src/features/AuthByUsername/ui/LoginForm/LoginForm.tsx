@@ -82,7 +82,7 @@ const LoginForm: FC = memo((props: LoginFormProps) => {
                 />
                 <Button
                     onClick={onLoginClick}
-                    theme={isLoading ? ThemeButton.DISABLED : ThemeButton.PRIMARY}
+                    theme={isLoading ? ThemeButton.LOADING : ThemeButton.PRIMARY}
                 >
                     {t("Войти")}
                 </Button>

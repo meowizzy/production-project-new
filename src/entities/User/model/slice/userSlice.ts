@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { type User, type UserSchema } from "../types/user";
-import { getUserData } from "../services/getUserData/getUserData";
+import { fetchUserData } from "../services/getUserData/fetchUserData";
 import { LOCAL_STORAGE } from "shared/const/localstorage";
 
 const initialState: UserSchema = {
@@ -22,15 +22,16 @@ export const userSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getUserData.pending, (state) => {
+            .addCase(fetchUserData.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(getUserData.rejected, (state, action) => {
+            .addCase(fetchUserData.rejected, (state, action) => {
                 state.error = action.payload;
                 state.isLoading = false;
             })
-            .addCase(getUserData.fulfilled, (state) => {
+            .addCase(fetchUserData.fulfilled, (state, action) => {
                 state.isLoading = false;
+                state.authData = action.payload;
             });
     }
 });

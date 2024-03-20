@@ -7,11 +7,13 @@ export default (env: BuildEnv): WebpackConfiguration => {
     const PORT = env.port || 3000;
     const mode = env.mode || "development";
     const isDev = mode === "development";
+    const apiUrl = env.apiUrl || "http://localhost:3001";
 
     const options: BuildOptions = {
         mode,
         port: PORT,
         isDev,
+        apiUrl,
         path: {
             entry: path.resolve(__dirname, "src", "index.tsx"),
             build: path.resolve(__dirname, "build"),

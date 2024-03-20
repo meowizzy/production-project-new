@@ -10,14 +10,38 @@
   background-color: transparent;
 }
 
-.primary, .disabled {
+.primary, .disabled, .loading {
   background-color: var(--inverted-primary-color);
   border-radius: var(--radius-s);
   color: var(--primary-color);
   padding: 10px 15px;
 }
 
-.disabled {
+.disabled, .loading {
   pointer-events: none;
   opacity: .5;
+}
+
+.loading {
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  display: flex;
+  align-items: center;
+  &:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    border-bottom-color: transparent;
+    display: block;
+    animation: rotation 1s linear infinite;
+    margin-right: 5px;
+  }
 }
