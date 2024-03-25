@@ -1,27 +1,36 @@
-import { type FC } from "react";
+import { type FC, memo } from "react";
+import { useTranslation } from "react-i18next";
+import { type IProfile } from "../../model/types/profile";
+import { Button } from "shared/ui/Button";
 import cn from "classnames";
 import cls from "./ProfileCard.module.scss";
-import { useSelector } from "react-redux";
-import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
-import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
-import { getProfileLoading } from "../../model/selectors/getProfileLoading/getProfileLoading";
 
 interface ProfileCardProps {
     className?: string;
+    data?: IProfile;
+    isLoading?: boolean;
+    error?: string;
 }
-const ProfileCard: FC<ProfileCardProps> = (props) => {
+export const ProfileCard: FC<ProfileCardProps> = memo((props) => {
     const {
-        className
+        className,
+        data,
+        isLoading,
+        error
     } = props;
-    const data = useSelector(getProfileData);
-    const isLoading = useSelector(getProfileLoading);
-    const error = useSelector(getProfileError);
+    const { t } = useTranslation("profile");
 
     return (
         <div className={cn(cls.ProfileCard, className)}>
+            <div className={cls.header}>
 
+                <Button>
+                    {t("Редактировать профиль")}
+                </Button>
+            </div>
+            <div className={cls.data}>
+
+            </div>
         </div>
     );
-};
-
-export default ProfileCard;
+});
