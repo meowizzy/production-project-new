@@ -1,15 +1,25 @@
 .title {
   font: var(--font-l);
-  color: var(--white-color);
 }
 
 .description {
   font: var(--font-m);
-  color: var(--white-color);
 }
 
 .error {
   .title, .description {
     color: var(--danger-color);
+  }
+}
+
+.primary {
+  .title, .description {
+    color: var(--white-color);
+  }
+}
+
+.secondary {
+  .title, .description {
+    color: var(--secondary-color);
   }
 }

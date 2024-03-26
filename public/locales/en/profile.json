@@ -1,4 +1,14 @@
 {
   "Профиль": "Profile",
-  "Редактировать профиль": "Edit profile"
+  "Редактировать профиль": "Edit profile",
+  "Ник": "Username",
+  "Возраст": "Age",
+  "Город": "City",
+  "Страна": "Country",
+  "Имя": "First name",
+  "Фамилия": "Last name",
+  "Редактирование профиля": "Editing your profile",
+  "jwt expired": "jwt token expired. please log in again.",
+  "Сохранить изменения": "Save changes",
+  "Отменить": "Cancel"
 }

@@ -1,0 +1,17 @@
+.row {
+  display: flex;
+  align-items: center;
+  font: var(--font-m);
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.label {
+  font-weight: 600;
+  margin-right: 10px;
+  &:after {
+    content: ":";
+  }
+}

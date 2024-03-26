@@ -1,8 +1,17 @@
-import { type FC, useEffect } from "react";
+import { type FC, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import DynamicModuleLoader, { type ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { getProfileData, getProfileError, ProfileCard, profileReducer, getProfileLoading } from "entities/Profile";
-import { fetchProfileData } from "entities/Profile/model/services/fetchProfileData/fetchProfileData";
+import {
+    fetchProfileData,
+    getProfileError,
+    getProfileLoading,
+    getProfileForm,
+    getProfileReadonly,
+    profileReducer,
+    profileActions, type IProfile,
+    ProfileCardEdit,
+    ProfileCard, updateProfileData
+} from "entities/Profile";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
 import cls from "./ProfilePage.module.scss";
@@ -20,23 +29,51 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const data = useSelector(getProfileData);
+    const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileLoading);
+    const readonly = useSelector(getProfileReadonly);
 
     useEffect(() => {
         dispatch(fetchProfileData());
+    }, [dispatch]);
+
+    const onSetReadonly = useCallback((readonly: boolean) => {
+        dispatch(profileActions.setReadonly(readonly));
+    }, [dispatch]);
+
+    const onUpdateData = useCallback((payload: IProfile) => {
+        dispatch(profileActions.updateData(payload));
+    }, [dispatch]);
+
+    const onCancelData = useCallback(() => {
+        dispatch(profileActions.cancelData());
+    }, [dispatch]);
+
+    const onSaveData = useCallback(() => {
+        dispatch(updateProfileData());
     }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={cn(cls.ProfilePage, className)}>
                 <h1>{t("Профиль")}</h1>
-                <ProfileCard
-                    data={data}
-                    isLoading={isLoading}
-                    error={error}
-                />
+                {
+                    readonly
+                        ? <ProfileCard
+                            data={formData}
+                            isLoading={isLoading}
+                            error={error}
+                            setReadOnly={onSetReadonly}
+                        />
+                        : <ProfileCardEdit
+                            updateData={onUpdateData}
+                            cancelData={onCancelData}
+                            saveData={onSaveData}
+                            isLoading={isLoading}
+                            data={formData}
+                        />
+                }
             </div>
         </DynamicModuleLoader>
     );

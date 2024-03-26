@@ -19,3 +19,28 @@
   padding: 10px;
   width: 100%;
 }
+
+.primary {
+  .InputLabel {
+    color: var(--white-color);
+  }
+}
+
+.secondary {
+  .Input {
+    border: 1px solid var(--primary-color);
+  }
+  .Input, .InputLabel {
+    color: var(--secondary-color);
+  }
+}
+
+.error {
+  .Input {
+    border: 1px solid var(--danger-color);
+  }
+
+  .Input, .InputLabel {
+    color: var(--danger-color);
+  }
+}

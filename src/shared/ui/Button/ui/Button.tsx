@@ -5,6 +5,7 @@ import cn from "classnames";
 export enum ThemeButton {
     CLEAR = "clear",
     PRIMARY = "primary",
+    SECONDARY = "secondary",
     DISABLED = "disabled",
     LOADING = "loading"
 }

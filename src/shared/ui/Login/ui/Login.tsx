@@ -1,4 +1,6 @@
 import { type FC, memo, useCallback, useState } from "react";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { Link } from "react-router-dom";
 import { Button, ThemeButton } from "shared/ui/Button";
 import { Text } from "shared/ui/Text";
 import { LoginModal } from "features/AuthByUsername";
@@ -36,9 +38,11 @@ export const Login: FC<LoginProps> = memo((props) => {
     if (authData) {
         return (
             <div className={cn(cls.Logout, classname)}>
-                <Text
-                    description={authData.email}
-                />
+                <Link to={RoutePath.profile} className={cls.link}>
+                    <Text
+                        description={authData.email}
+                    />
+                </Link>
                 <Button
                     theme={ThemeButton.PRIMARY}
                     onClick={onLogout}
