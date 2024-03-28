@@ -7,6 +7,7 @@ import { routeConfig, RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Suspense } from "react";
 import { PageLoader } from "widgets/PageLoader";
 import { App } from "app";
+import { PrivateRoute } from "./PrivateRoute";
 
 export const AppRouter = createBrowserRouter(
     createRoutesFromElements(
@@ -15,7 +16,9 @@ export const AppRouter = createBrowserRouter(
                 Object.values(routeConfig).map(route => (
                     <Route path={ route.path } key={ route.path } element={
                         <Suspense fallback={<PageLoader />}>
-                            { route.element }
+                            <PrivateRoute authOnly={route.authOnly}>
+                                { route.element }
+                            </PrivateRoute>
                         </Suspense>
                     }/>
                 ))

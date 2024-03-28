@@ -43,9 +43,15 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props) => {
         <div className={cn(cls.ProfileCard, className)}>
             <div className={cls.data}>
                 <div className={cls.dataTop}>
-                    <div className={cls.avatar}>
-                        <img src={data?.avatar} alt={data?.username}/>
-                    </div>
+                    {
+                        data?.avatar
+                            ? (
+                                <div className={cls.avatar}>
+                                    <img src={data?.avatar} alt={data?.username}/>
+                                </div>
+                            )
+                            : ""
+                    }
                     <Text
                         className={cls.dataName}
                         theme={ThemeText.SECONDARY}
