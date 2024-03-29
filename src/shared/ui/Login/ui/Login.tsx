@@ -1,6 +1,6 @@
 import { type FC, memo, useCallback, useState } from "react";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, ThemeButton } from "shared/ui/Button";
 import { Text } from "shared/ui/Text";
 import { LoginModal } from "features/AuthByUsername";
@@ -23,12 +23,15 @@ export const Login: FC<LoginProps> = memo((props) => {
     const dispatch = useDispatch();
     const { authData, isLoading } = useSelector(getUserState);
     const [modalOpened, setModalOpened] = useState(false);
-    const closeHandler = useCallback((): void => {
+    const navigate = useNavigate();
+    const toggleHandler = useCallback((): void => {
         setModalOpened(!modalOpened);
     }, [setModalOpened, modalOpened]);
 
     const onLogout = useCallback((): void => {
         dispatch(userActions.removeAuthData());
+        navigate(RoutePath.home);
+        toggleHandler();
     }, [dispatch]);
 
     if (isLoading) {
@@ -58,13 +61,13 @@ export const Login: FC<LoginProps> = memo((props) => {
             <Button
                 theme={ThemeButton.CLEAR}
                 cls={cls.LoginBtn}
-                onClick={closeHandler}
+                onClick={toggleHandler}
             >
                 <LoginIcon/>
             </Button>
             <LoginModal
                 isOpen={modalOpened}
-                onClose={closeHandler}
+                onClose={toggleHandler}
             />
         </div>
     );

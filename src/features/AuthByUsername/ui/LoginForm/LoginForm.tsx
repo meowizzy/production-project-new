@@ -17,6 +17,8 @@ import { Input } from "shared/ui/Input";
 import { Text, ThemeText } from "shared/ui/Text";
 import styles from "./LoginForm.module.scss";
 import cn from "classnames";
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 export interface LoginFormProps {
     className?: string;
@@ -38,6 +40,7 @@ const LoginForm: FC = memo((props: LoginFormProps) => {
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginLoading);
     const error = useSelector(getLoginError);
+    const navigate = useNavigate();
 
     const onChangeUsername = useCallback((value: string): void => {
         dispatch(loginActions.setUsername(value));
@@ -52,8 +55,9 @@ const LoginForm: FC = memo((props: LoginFormProps) => {
 
         if (result.meta.requestStatus === "fulfilled") {
             onSuccess();
+            navigate(RoutePath.profile);
         }
-    }, [dispatch, email, password, onSuccess]);
+    }, [navigate, dispatch, email, password, onSuccess]);
 
     return (
         <DynamicModuleLoader

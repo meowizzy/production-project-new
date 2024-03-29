@@ -10,5 +10,10 @@
   "Редактирование профиля": "Editing your profile",
   "jwt expired": "jwt token expired. please log in again.",
   "Сохранить изменения": "Save changes",
-  "Отменить": "Cancel"
+  "Отменить": "Cancel",
+  "Произошла серверная ошибка при сохранении данных пользователя.": "A server error occurred while saving user data.",
+  "Неверно указан возраст.": "The age is incorrect.",
+  "Поле \"Ник\" обязательное.": "The \"Nick\" field is required.",
+  "Имя и фамилия обязательны.": "First and last name are required.",
+  "Заполните все обязательные поля": "Fill in all required fields"
 }

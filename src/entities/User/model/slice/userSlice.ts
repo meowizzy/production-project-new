@@ -1,12 +1,13 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { type User, type UserSchema } from "../types/user";
-import { fetchUserData } from "../services/getUserData/fetchUserData";
+import { fetchUserData } from "entities/User/model/services/fetchUserData/fetchUserData";
 import { LOCAL_STORAGE } from "shared/const/localstorage";
 
 const initialState: UserSchema = {
     authData: undefined,
     isLoading: false,
-    error: undefined
+    error: undefined,
+    _inited: false
 };
 export const userSlice = createSlice({
     name: "user",
@@ -28,10 +29,12 @@ export const userSlice = createSlice({
             .addCase(fetchUserData.rejected, (state, action) => {
                 state.error = action.payload;
                 state.isLoading = false;
+                state._inited = false;
             })
             .addCase(fetchUserData.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.authData = action.payload;
+                state._inited = true;
             });
     }
 });

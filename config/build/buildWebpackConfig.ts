@@ -13,7 +13,8 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             filename: 'bundle.[contenthash].js',
             chunkFilename: "chunk.[contenthash].js",
             path: options.path.build,
-            clean: true
+            clean: true,
+            publicPath: "/"
         },
 
         module: {

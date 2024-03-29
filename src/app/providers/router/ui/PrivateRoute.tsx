@@ -1,6 +1,6 @@
-import { type FC, type ReactNode, useEffect } from 'react';
+import { type FC, type ReactNode, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getUserState } from "entities/User";
+import { getUserInitedState, getUserState } from "entities/User";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
@@ -15,10 +15,11 @@ export const PrivateRoute: FC<PrivateRouteProps> = (props) => {
         authOnly
     } = props;
     const { authData } = useSelector(getUserState);
+    const isInited = useSelector(getUserInitedState);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!authData && authOnly) {
+        if (isInited && !authData && authOnly) {
             navigate(RoutePath.home);
         }
     }, []);

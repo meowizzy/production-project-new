@@ -11,16 +11,51 @@
       "views": 200
     }
   ],
+  "articles": [
+    {
+      "id": 1,
+      "title": "JavaScript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": 1,
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Пункт параграфа 1",
+            "Пункт параграфа 2",
+            "Пункт параграфа 3"
+          ]
+        },
+        {
+          "id": 2,
+          "type": "IMAGE",
+          "src": "https://habrastorage.org/r/w1560/getpro/habr/upload_files/1bf/1f6/3e6/1bf1f63e680625c26877bb2d20f9f651.png"
+        },
+        {
+          "id": 3,
+          "type": "CODE",
+          "code": "const name = 'Петя';\nlet age = 25;\n\n/// Изменение данных\nage = 26;"
+        }
+      ]
+    }
+  ],
   "comments": [
     {
       "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
+      "body": "a comment about post 1",
+      "articleId": "1",
+      "userId": "3"
     },
     {
       "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
+      "body": "another comment about post 1",
+      "articleId": "1",
+      "userId": "3"
     }
   ],
   "users": [
@@ -37,7 +72,8 @@
     {
       "email": "admintest@mail.com",
       "password": "$2a$10$25KLzsx/ZsaotTJTF5ZjB.iO.JB99h5ihYnrSa6JtQAD8Sw.MkTd6",
-      "id": 3
+      "id": 3,
+      "role": "ADMIN"
     }
   ],
   "profile": [
@@ -45,9 +81,9 @@
       "id": 3,
       "firstName": "Maksad",
       "lastName": "Khalipaev",
-      "age": "23",
-      "country": "Uzbekistan",
-      "city": "Tashkent",
+      "age": "24",
+      "country": "",
+      "city": "",
       "username": "meowizzy",
       "avatar": "https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
     }

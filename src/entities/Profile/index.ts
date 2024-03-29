@@ -9,3 +9,5 @@ export { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm"
 export { getProfileReadonly } from "./model/selectors/getProfileReadonly/getProfileReadonly";
 export { fetchProfileData } from "./model/services/fetchProfileData/fetchProfileData";
 export { updateProfileData } from "./model/services/updateProfileData/updateProfileData";
+export { validateProfileData } from "./model/services/validateProfileData/validateProfileData";
+export { getProfileValidateErrors } from "./model/selectors/getProfileValidateErrors/getProfileValidateErrors";

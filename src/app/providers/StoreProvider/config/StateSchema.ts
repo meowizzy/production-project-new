@@ -38,8 +38,8 @@ export interface ThunkExtraArg {
     navigate: (to: To, options?: NavigateOptions) => void
 }
 
-export interface ThunkConfig {
-    rejectValue: string;
+export interface ThunkConfig<T = string> {
+    rejectValue: T;
     extra: ThunkExtraArg;
     state: StateSchema;
 }

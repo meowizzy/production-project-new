@@ -15,11 +15,11 @@ export const AppRouter = createBrowserRouter(
             {
                 Object.values(routeConfig).map(route => (
                     <Route path={ route.path } key={ route.path } element={
-                        <Suspense fallback={<PageLoader />}>
-                            <PrivateRoute authOnly={route.authOnly}>
+                        <PrivateRoute authOnly={route.authOnly}>
+                            <Suspense fallback={<PageLoader />}>
                                 { route.element }
-                            </PrivateRoute>
-                        </Suspense>
+                            </Suspense>
+                        </PrivateRoute>
                     }/>
                 ))
             }
