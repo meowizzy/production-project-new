@@ -1,4 +1,5 @@
 import { type FC, memo } from "react";
+import { ArticleDetails } from "entities/Article";
 import cls from "./ArticleDetailPage.module.scss";
 
 interface ArticleDetailPageProps {
@@ -7,7 +8,10 @@ interface ArticleDetailPageProps {
 
 const ArticleDetailPage: FC<ArticleDetailPageProps> = () => {
     return (
-        <h1>Article Detail Page</h1>
+        <>
+            <h1>Article Detail Page</h1>
+            <ArticleDetails />
+        </>
     );
 };
 
