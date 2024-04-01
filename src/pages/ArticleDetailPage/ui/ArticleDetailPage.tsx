@@ -1,5 +1,7 @@
 import { type FC, memo } from "react";
 import { ArticleDetails } from "entities/Article";
+import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import cls from "./ArticleDetailPage.module.scss";
 
 interface ArticleDetailPageProps {
@@ -7,10 +9,14 @@ interface ArticleDetailPageProps {
 }
 
 const ArticleDetailPage: FC<ArticleDetailPageProps> = () => {
+    const { articleId } = useParams();
+    const { t } = useTranslation("article-details");
+
     return (
         <>
-            <h1>Article Detail Page</h1>
-            <ArticleDetails />
+            <ArticleDetails
+                articleId={articleId}
+            />
         </>
     );
 };

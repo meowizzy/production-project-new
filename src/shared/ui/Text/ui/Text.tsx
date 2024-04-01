@@ -26,7 +26,7 @@ export const Text: FC<TextProps> = (props) => {
 
     return (
         <div className={cn(styles.Text, className, styles[theme])}>
-            {title && <p className={cn(styles.title)}>{title}</p>}
+            {title && <h1>{title}</h1>}
             {description && <p className={cn(styles.description)}>{description}</p>}
         </div>
     );

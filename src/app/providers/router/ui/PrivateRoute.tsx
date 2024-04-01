@@ -22,7 +22,7 @@ export const PrivateRoute: FC<PrivateRouteProps> = (props) => {
         if (isInited && !authData && authOnly) {
             navigate(RoutePath.home);
         }
-    }, []);
+    }, [authData, navigate, authOnly, isInited]);
 
     return (!authData && authOnly ? null : <>{ children }</>);
 };

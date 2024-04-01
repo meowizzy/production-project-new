@@ -3,6 +3,7 @@ import { fetchUserData } from "entities/User/model/services/fetchUserData/fetchU
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import "app/styles/index.scss";
 import { AppLayout } from "app/AppLayout/AppLayout";
+import ErrorBoundary from "app/providers/ErrorBoundary";
 
 export const App: FC = () => {
     const dispatch = useAppDispatch();
@@ -12,6 +13,8 @@ export const App: FC = () => {
     }, [dispatch]);
 
     return (
-        <AppLayout />
+        <ErrorBoundary>
+            <AppLayout />
+        </ErrorBoundary>
     );
 };
